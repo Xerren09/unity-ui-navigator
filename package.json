@@ -1,0 +1,19 @@
+{
+  "name": "net.xerren.uiviews",
+  "version": "1.0.0",
+  "displayName": "UI Navigator",
+  "description": "An easy to use UI framework built for Unity's UI Toolkit.",
+  "unity": "2021.1",
+  "documentationUrl": "https://github.com/Xerren09/unity-ui-navigator",
+  "licensesUrl": "https://github.com/Xerren09/unity-ui-navigator/blob/main/LICENSE",
+  "keywords": [
+    "ui",
+    "ui-framework",
+    "ui-view"
+  ],
+  "author": {
+    "name": "Bars Margetsch",
+    "url": "https://github.com/Xerren09"
+  },
+  "type": "library"
+}

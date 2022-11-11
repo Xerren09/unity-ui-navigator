@@ -1,0 +1,16 @@
+{
+    "name": "Xerren.UIViews.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a9ee6bcf7d9ad1646b5149d4efd32ef2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
