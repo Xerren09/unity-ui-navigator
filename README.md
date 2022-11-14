@@ -14,7 +14,7 @@ Individual chunks of UI are organized into "Views", each acting as a separate co
 Setting up a View requires very little work which can be done entirely in the Editor. Simply reference a `ViewNavigator` instance, assign a unique ID to the View, attach the desired UXML file to be displayed, and finally select where it should be displayed.
 
 * __Easy to derive custom UI scripts that integrate seamlessly:__
-The base [UIScript](UIScript.md) class (which itself builds on `Monobehaviour`) can be easily derived from, to build custom UI code that directly controls View elements.
+The base [UIView](./Documentation/UIScript.md) class (which itself builds on `Monobehaviour`) can be easily derived from, to build custom UI code that directly controls View elements.
 
 ## Setup
 
@@ -36,7 +36,7 @@ Then, add a `ViewNavigator` component, and reference the UI Document as its Targ
 ![](Documentation/Images/viewnavigator_setup.png)
 
 ### Setting up a View
-To set up a simple View that only loads a static piece of UI, add a `UIScript` component:
+To set up a simple View that only loads a static piece of UI, add a `UIView` component:
 
 ![](Documentation/Images/view_base.png)
 
@@ -46,12 +46,8 @@ To set up a simple View that only loads a static piece of UI, add a `UIScript` c
 | ID                  | A ___unique___ string ID for this view. This is so it can be easily referenced later. |
 | UI Document         | The UXML document containing the piece of UI that will be displayed.  |
 | Is Static           | Set if the View's UI elements will not be updated. This is used internally.  |
-| Dependency          | Reference another View if the current one depends on it. This will cause the referenced View to be loaded first, when the current one is displayed. (_Dependency chains are supported, see the [Dependencies section](###Dependencies)_)  |
+| Dependency          | Reference another View if the current one depends on it. This will cause the referenced View to be loaded first, when the current one is displayed. (_[See dependencies](./Documentation/UIScript.md#dependency)_)  |
 | Target Container Id | From the dropdown, select the name of the VisualElement that this View will load itself into. |
-
-#### Dependencies
-
-An important note here, is that dependency chains are supported. If a referenced view also has a dependency (and so on), the chain will be traversed and every necessary View will be displayed in order. This also means that only the topmost View needs to be manually called, and every other one will be automatically handled.
 
 
 ### Calling a View
@@ -69,7 +65,7 @@ For more info, take a look at [the navigator's documentation.](Documentation/Vie
 
 ## Custom Views
 
-The `UIScript` base class has several methods that can be used to write powerful custom UI controllers. For more info [take a look at its documentation.](Documentation/UIScript.md)
+The `UIView` base class has several methods that can be used to write powerful custom UI controllers. For more info [take a look at its documentation.](Documentation/UIScript.md)
 
 ### Example
 Here is an example of a simple script, for a menu bar that can be used to switch between two different game pages:
@@ -78,7 +74,7 @@ Here is an example of a simple script, for a menu bar that can be used to switch
 using UnityEngine.UIElements;
 using UIViews;
 
-public class BottomNavigation : UIScript
+public class BottomNavigation : UIView
 {
     void Start()
     {
@@ -90,20 +86,20 @@ public class BottomNavigation : UIScript
     protected override void OnEnterFocus()
     {
         // Add Button click actions
-        GetViewContainer().Q<Button>("AdventureBtn").clicked += AdventureMenuOpen;
-        GetViewContainer().Q<Button>("TavernBtn").clicked += TavernMenuOpen;
+        GetViewContainer().Q<Button>("PageOneButton").clicked += SwitchToPageOne;
+        GetViewContainer().Q<Button>("PageTwoButton").clicked += SwitchToPageTwo;
     }
 
     // Show other views
 
-    private void AdventureMenuOpen()
+    private void SwitchToPageOne()
     {
-        Navigator.ShowView("AdventureBoard");
+        Navigator.ShowView("PageOne");
     }
 
-    private void TavernMenuOpen()
+    private void SwitchToPageTwo()
     {
-        Navigator.ShowView("Tavern");
+        Navigator.ShowView("PageTwo");
     }
 }
 ```

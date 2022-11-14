@@ -9,7 +9,7 @@ namespace UIViews
     /// <summary>
     /// Used to create <see cref="ViewNavigator"/> views.
     /// </summary>
-    public class UIScript : MonoBehaviour
+    public class UIView : MonoBehaviour
     {
         /// <summary>
         /// The ViewNavigator instance this script is hooked up to.
@@ -62,7 +62,7 @@ namespace UIViews
         /// </summary>
         [field: SerializeField]
         [field: HideInInspector]
-        public UIScript Dependency { get; private set; }
+        public UIView Dependency { get; protected set; }
 
         /// <summary>
         /// The ID of the view container in the target document. 
@@ -157,10 +157,10 @@ namespace UIViews
         /// Compiles the dependency stack of this view into a list.
         /// </summary>
         /// <returns></returns>
-        public List<UIScript> GetDependencyList()
+        public List<UIView> GetDependencyList()
         {
-            List<UIScript> dependencies = new List<UIScript>();
-            UIScript dependency = Dependency;
+            List<UIView> dependencies = new List<UIView>();
+            UIView dependency = Dependency;
             while (dependency != null)
             {
                 dependencies.Add(dependency);
@@ -179,7 +179,7 @@ namespace UIViews
             deps.Reverse();
             if (deps.Count > 0)
             {
-                foreach (UIScript dependency in deps)
+                foreach (UIView dependency in deps)
                 {
                     // Check if the dependency is not active
                     if (dependency.IsViewActive == false)

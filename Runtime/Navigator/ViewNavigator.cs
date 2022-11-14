@@ -17,7 +17,7 @@ namespace UIViews
         /// <summary>
         /// Contains the list of registered views.
         /// </summary>
-        private List<UIScript> Views = new List<UIScript>();
+        private List<UIView> Views = new List<UIView>();
 
         /// <summary>
         /// Displays the specified view on the Navigator's target document.
@@ -37,7 +37,7 @@ namespace UIViews
         /// Registers a view to the navigator. Used internally for UIScripts to register themselves.
         /// </summary>
         /// <param name="view"></param>
-        public void RegisterView(UIScript view)
+        public void RegisterView(UIView view)
         {
             if (view != null)
             {
@@ -59,7 +59,7 @@ namespace UIViews
         /// <param name="viewID"></param>
         public void HideView(string viewID)
         {
-            UIScript view = GetView(viewID);
+            UIView view = GetView(viewID);
             if (view != null)
             {
                 view.HideView();
@@ -99,7 +99,7 @@ namespace UIViews
         /// </summary>
         /// <param name="viewID"></param>
         /// <returns></returns>
-        private UIScript GetView(string viewID)
+        private UIView GetView(string viewID)
         {
             var viewData = Views.Find(view => view.ID == viewID);
             if (viewData == null)

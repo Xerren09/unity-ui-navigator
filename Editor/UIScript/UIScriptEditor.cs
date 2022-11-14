@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 namespace UIViews
 {
 #if UNITY_EDITOR
-    [CustomEditor(typeof(UIScript), true, isFallback = true)]
+    [CustomEditor(typeof(UIView), true, isFallback = true)]
     public class UIScriptEditor : Editor
     {
         /// <summary>
@@ -40,7 +40,7 @@ namespace UIViews
         public override void OnInspectorGUI()
         {
             // Get the view data
-            var view = target as UIScript;
+            var view = target as UIView;
             serializedObject.Update();
 
             // View setup is in its own foldout so it doesn't take up too much space on derived scripts
@@ -67,11 +67,11 @@ namespace UIViews
                 EditorGUILayout.Space(10);
 
                 EditorGUILayout.LabelField("Dependency setup", EditorStyles.boldLabel);
-                _viewDependency.objectReferenceValue = (UIScript)EditorGUILayout.ObjectField("Dependency", view.Dependency, typeof(UIScript), true);
+                _viewDependency.objectReferenceValue = (UIView)EditorGUILayout.ObjectField("Dependency", view.Dependency, typeof(UIView), true);
 
                 if (view.Navigator != null)
                 {
-                    // FIXME: Potential performance and memory impact, as this runs multiple times, not just when the dependency changes
+                    // Potential performance and memory impact, as this runs multiple times, not just when the dependency changes
                     // Get the container IDs from the dependency, if there is one; otherwise get the Navigator target's root
                     if (view.Dependency != null)
                     {
@@ -109,7 +109,7 @@ namespace UIViews
         /// </summary>
         /// <param name="view"></param>
         /// <returns></returns>
-        private void ShowInformationWarnings(UIScript view)
+        private void ShowInformationWarnings(UIView view)
         {
             if (view.UXMLDocument == null)
             {
