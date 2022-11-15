@@ -2,6 +2,8 @@
 
 An easy to use UI framework built for Unity's UI Toolkit.
 
+[![latestRelease](https://img.shields.io/github/v/release/Xerren09/unity-ui-navigator?include_prereleases&style=flat-square)](https://github.com/Xerren09/unity-ui-navigator/releases) [![license](https://img.shields.io/github/license/Xerren09/unity-ui-navigator?style=flat-square)](https://github.com/Xerren09/unity-ui-navigator/blob/main/LICENSE)
+
 This framework was primarily designed for mostly UI based games, but it is perfect as a general UI management tool.
 
 ## Features
