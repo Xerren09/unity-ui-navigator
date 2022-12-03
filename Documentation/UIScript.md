@@ -9,7 +9,7 @@ While most of the fields here have a `protected` setter, generally it is not rec
 public ViewNavigator Navigator { get; private set; }
 ```
 
-The ViewNavigator instance this script is hooked up to. On `Awake`, the script will automatically register itself (See [RegisterView](./ViewNavigator.md#RegisterView(UIView view)) for more).
+The ViewNavigator instance this script is hooked up to. On `Awake`, the script will automatically register itself (See [RegisterView](./ViewNavigator.md#RegisterView) for more).
 
 
 ### ID
