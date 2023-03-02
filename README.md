@@ -1,6 +1,6 @@
 # Unity UI Toolkit Navigator
 
-An easy to use UI framework built for Unity's UI Toolkit.
+An easy to use event based UI management library built for Unity's UI Toolkit. 
 
 [![latestRelease](https://img.shields.io/github/v/release/Xerren09/unity-ui-navigator?include_prereleases&style=flat-square)](https://github.com/Xerren09/unity-ui-navigator/releases) [![license](https://img.shields.io/github/license/Xerren09/unity-ui-navigator?style=flat-square)](https://github.com/Xerren09/unity-ui-navigator/blob/main/LICENSE)
 
